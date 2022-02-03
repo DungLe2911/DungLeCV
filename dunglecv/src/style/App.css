@@ -1,3 +1,4 @@
+/* --------------------------- Navigation Bar--------------------------------- */
 .navBar{
     height: 100vh;
     width: 4%;
@@ -60,6 +61,12 @@
     color: green;
 }
 
+.navBarItem:hover{
+    z-index: 300;
+    position: static;
+    width: 200px;
+}
+
 .downloadBtn{
     height: 50px;
     width: 100%;
@@ -81,4 +88,11 @@
 .downloadBtn>a{
     color: white;
     text-decoration: none;
+}
+
+/* ---------------------------- Content Area ------------------------------- */
+.contentArea{
+    background-color: #1a1a1a;
+    height: 100vh;
+    width: 100vw;
 }

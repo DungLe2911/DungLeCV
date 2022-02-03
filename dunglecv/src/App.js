@@ -6,6 +6,9 @@ export default function App() {
     <>
       <Router>
         <NavBar/>
+        <div className='contentArea'>
+          
+        </div>
         <Switch>
           <Route path='/'/>
         </Switch>
