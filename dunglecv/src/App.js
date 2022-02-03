@@ -1,11 +1,15 @@
 import './style/App.css';
 import NavBar from './component/NavBar';
-function App() {
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+export default function App() {
   return (
-    <div className="App">
-      <NavBar/>
-    </div>
+    <>
+      <Router>
+        <NavBar/>
+        <Switch>
+          <Route path='/'/>
+        </Switch>
+      </Router>
+    </>
   );
-}
-
-export default App;
+};
