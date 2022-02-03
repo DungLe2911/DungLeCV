@@ -9,6 +9,7 @@
     -o-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
     position: absolute;
+    z-index: 200;
 }
 
 .navBarActive{
@@ -19,7 +20,7 @@
     height: 50px;
     width: 100%;
     color: white;
-    background-color: blue;
+    background-color: #50b280;
     display: flex;
     flex-direction: row-reverse;
 }
@@ -33,7 +34,7 @@
 .navBarMain{
     height: 84vh;
     width: 100%;
-    background-color: black;
+    background-color: #1a1a1a;
     align-items: center;
     display: flex;
 }
@@ -62,7 +63,7 @@
 .downloadBtn{
     height: 50px;
     width: 100%;
-    background-color: blue;
+    background-color: #50b280;
     position: inherit;
     bottom: 0px;
     color: white;

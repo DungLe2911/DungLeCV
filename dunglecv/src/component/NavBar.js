@@ -9,8 +9,10 @@ import { Link } from 'react-router-dom';
 export default function NavBar(){
 	const [fullMenu, toggleFullMenu] = useState(false);
 	const data = [
-		{icon: <BsIcons.BsPerson/>, label: "lable 1"},
-		{icon: <AiIcons.AiOutlinePhone/>, label: "Contact"}
+		{icon: <BsIcons.BsPerson/>, label: "Lable 1"},
+		{icon: <AiIcons.AiOutlinePhone/>, label: "Contact"},
+		{icon: <BsIcons.BsBriefcase/>, label: "Label 3"},
+		{icon: <AiIcons.AiOutlineProject/>, label: "Projects"},
 	]	
 	const toggleNavBar = () =>{
 		toggleFullMenu(!fullMenu)
@@ -35,6 +37,7 @@ export default function NavBar(){
 								<Link className='navBarItem' key={idx}>
 									<div style={{marginLeft:'10px', display:'flex', flexDirection:'row', alignItems:'center'}}>
 										{ele.icon}
+										&nbsp;
 										&nbsp;
 										{fullMenu? <div>{ele.label}</div>:null}
 									</div>
