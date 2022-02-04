@@ -10,14 +10,14 @@ export default function NavBar(){
 	const [fullMenu, toggleFullMenu] = useState(false);
 	const [current, setCurrent] = useState(0);
 	const data = [
-		{icon: <BsIcons.BsPerson/>, label: "Lable 1"},
+		{icon: <BsIcons.BsPerson/>, label: "Introduction"},
 		{icon: <AiIcons.AiOutlinePhone/>, label: "Contact"},
-		{icon: <BsIcons.BsBriefcase/>, label: "Label 3"},
+		{icon: <BsIcons.BsBriefcase/>, label: "Experience"},
 		{icon: <AiIcons.AiOutlineProject/>, label: "Projects"},
+		{icon: <FaIcons.FaGraduationCap/>, label: "Education"},
 	]	
 	const toggleNavBar = () =>{
 		toggleFullMenu(!fullMenu)
-		console.log(fullMenu)
 	}
 
 	const handleClickNavBarItem = (newIdx)=>{
@@ -27,6 +27,11 @@ export default function NavBar(){
 		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.color = "#50b280";
 		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.background = "#ffffff";
 		//set new current icon to green
+
+		//close navbar if it is opening
+		if(fullMenu){
+			toggleNavBar();
+		}
 	}
 	//componentDidMount
 	useEffect(()=>{

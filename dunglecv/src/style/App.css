@@ -95,9 +95,17 @@
 .contentArea{
     background-color: #272727;
     height: 100vh;
-    width: calc(100vw - 4%);
+    min-width: calc(100vw - 4%);
     right: 0px;
     position: absolute;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+}
+
+/* ----------------------------- About Me page ---------------------------------------- */
+.aboutMeContainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
