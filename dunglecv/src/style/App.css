@@ -61,11 +61,12 @@
     color: green;
 }
 
-.navBarItem:hover{
+/* .navBarItem:hover{
     z-index: 300;
     position: static;
-    width: 200px;
-}
+    width: 250px;
+    background-color: #ffffff;
+} */
 
 .downloadBtn{
     height: 50px;
@@ -92,7 +93,11 @@
 
 /* ---------------------------- Content Area ------------------------------- */
 .contentArea{
-    background-color: #1a1a1a;
+    background-color: #272727;
     height: 100vh;
-    width: 100vw;
+    width: calc(100vw - 4%);
+    right: 0px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
 }
