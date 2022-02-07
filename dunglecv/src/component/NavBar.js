@@ -23,7 +23,11 @@ export default function NavBar(){
 
 	const handleClickNavBarItem = (newIdx)=>{
 		const contentArea = document.getElementById("contentArea");
-		contentArea.scrollTop = (contentArea.scrollHeight/data.length)*(newIdx);
+		contentArea.scroll({
+			top: (contentArea.scrollHeight/data.length)*newIdx,
+			behavior: 'smooth' 
+		});
+		// contentArea.scrollTop = (contentArea.scrollHeight/data.length)*(newIdx);
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.color = "#ffffff";//set current icon to white
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.background = "none";
 		setCurrent(newIdx); // update the new curent
@@ -44,19 +48,19 @@ export default function NavBar(){
 			const scrollPos = document.getElementById("contentArea").scrollTop;
 			for(let i = 0;i<data.length;i++){
 				if(scrollPos < (contentArea.scrollHeight/data.length)*(i+1)){
-						document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.color = "#ffffff";//set current icon to white
-						document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.background = "none";
-						document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.color = "#ffffff";//set current icon to white
-						document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.background = "none";
-						document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.color = "#ffffff";//set current icon to white
-						document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.background = "none";
-						document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.color = "#ffffff";//set current icon to white
-						document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.background = "none";
-						document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.color = "#ffffff";//set current icon to white
-						document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.background = "none";
-						setCurrent(i); // update the new curent
-						document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.color = "#50b280";
-						document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.background = "#ffffff";
+					document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.color = "#ffffff";//set current icon to white
+					document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.background = "none";
+					document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.color = "#ffffff";//set current icon to white
+					document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.background = "none";
+					document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.color = "#ffffff";//set current icon to white
+					document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.background = "none";
+					document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.color = "#ffffff";//set current icon to white
+					document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.background = "none";
+					document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.color = "#ffffff";//set current icon to white
+					document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.background = "none";
+					setCurrent(i); // update the new curent
+					document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.color = "#50b280";
+					document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.background = "#ffffff";
 					break;
 				}
 			}
