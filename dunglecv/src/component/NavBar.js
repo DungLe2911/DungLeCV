@@ -31,14 +31,30 @@ export default function NavBar(){
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.color = "#ffffff";//set current icon to white
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.background = "none";
 		setCurrent(newIdx); // update the new curent
-		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.color = "#50b280";
-		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.background = "#ffffff";
+				// two lines below not neccesary cuz scrolling effect. this will cause 
+				// flashing at new selected item
+				// document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.color = "#50b280";
+				// document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.background = "#ffffff";
 		//set new current icon to green
 		//close navbar if it is opening
 		if(fullMenu){
 			toggleNavBar();
 		}
 	}
+
+	const handleMouseOverNavBarItem = (idx) =>{
+		// document.querySelector(".navBarItem:nth-of-type("+idx+1+") > div > svg").style.fontSize = 40;
+		if(idx != current){
+			const ele = document.querySelector("#Item"+idx+">svg");
+			ele.style.fontSize = 50
+		}
+	}
+
+	const handleMouseLeaveNavBarItem = (idx) =>{
+		const ele = document.querySelector("#Item"+idx+">svg");
+		ele.style.fontSize = 30
+	}
+
 	//componentDidMount
 	useEffect(()=>{
 		const contentArea = document.getElementById("contentArea");
@@ -61,6 +77,7 @@ export default function NavBar(){
 					setCurrent(i); // update the new curent
 					document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.color = "#50b280";
 					document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.background = "#ffffff";
+					document.querySelector("#Item"+i+">svg").style.fontSize = 30;
 					break;
 				}
 			}
@@ -78,8 +95,9 @@ export default function NavBar(){
 					<div className="navBarItemContainer">
 						{data.map((ele,idx)=>{
 							return(							
-								<Link to="#" className='navBarItem' key={idx} onClick={()=>{handleClickNavBarItem(idx)}}>
-									<div style={{marginLeft:'10px', display:'flex', flexDirection:'row', alignItems:'center'}}>
+								<Link to="#" className='navBarItem' key={idx} onClick={()=>{handleClickNavBarItem(idx)}} 
+								onMouseMove={()=>{handleMouseOverNavBarItem(idx)}} onMouseLeave={()=>{handleMouseLeaveNavBarItem(idx)}}>
+									<div id={"Item"+idx} style={{marginLeft:'10px', display:'flex', flexDirection:'row', alignItems:'center'}}>
 										{ele.icon}
 										&nbsp;
 										&nbsp;
