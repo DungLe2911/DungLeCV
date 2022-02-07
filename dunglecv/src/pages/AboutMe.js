@@ -13,6 +13,7 @@ export default function AboutMe(){
 	];
 	return(
 		<div className="aboutMeContainer">
+			{/* snapshot (leftside) */}
 			<div className="snapshotContainer">
 					<img src={SnapShot} alt="snapshot" width="504"/>
 					<div className="snapshotInfo">
@@ -30,6 +31,10 @@ export default function AboutMe(){
 							</div>
 						</IconContext.Provider>
 					</div>
+			</div>
+			{/* content (rightside) */}
+			<div className="aboutMeContentContainer">
+				{/* WORKING IN PROGRESS */}
 			</div>
 		</div>
 	);

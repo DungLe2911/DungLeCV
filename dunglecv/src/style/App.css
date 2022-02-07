@@ -95,15 +95,13 @@
 .contentArea{
     background-color: #272727;
     height: 100vh;
-    min-width: calc(100vw - 4%);
-    right: 0px;
+    width: calc(100vw - 4%);
     position: absolute;
+    right: 0px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
-
-
 
 /* ----------------------------- About Me page ---------------------------------------- */
 .aboutMeContainer{
@@ -166,4 +164,21 @@ img{
 .socialPlatform{
     color: #ffffff;
     margin-right: 10px;
+}
+
+.aboutMeContentContainer{
+    /* 100 is total display area */
+    /* 41% width of snapshot */
+    /* 10px margin left in between snapshot and navbar */
+    width: calc(100% - 41% - 10px);
+    height: 100vh;
+    /* background-color: aqua; */
+}
+
+/* ------------------------------- Experience Page -------------------------------- */
+.experienceContainer{
+    width: 100%;
+    min-height: 100vh;
+    /* the two line about need to be in every page container */
+    
 }

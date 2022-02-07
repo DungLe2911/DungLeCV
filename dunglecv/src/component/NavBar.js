@@ -20,14 +20,16 @@ export default function NavBar(){
 		toggleFullMenu(!fullMenu)
 	}
 
+
 	const handleClickNavBarItem = (newIdx)=>{
+		const contentArea = document.getElementById("contentArea");
+		contentArea.scrollTop = (contentArea.scrollHeight/data.length)*(newIdx);
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.color = "#ffffff";//set current icon to white
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.background = "none";
 		setCurrent(newIdx); // update the new curent
 		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.color = "#50b280";
 		document.querySelector(".navBarItem:nth-of-type("+(newIdx+1)+")").style.background = "#ffffff";
 		//set new current icon to green
-
 		//close navbar if it is opening
 		if(fullMenu){
 			toggleNavBar();
@@ -35,13 +37,35 @@ export default function NavBar(){
 	}
 	//componentDidMount
 	useEffect(()=>{
+		const contentArea = document.getElementById("contentArea");
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.color = "#50b280";
 		document.querySelector(".navBarItem:nth-of-type("+(current+1)+")").style.background = "#ffffff";
+		document.getElementById("contentArea").addEventListener("scroll", function(){
+			const scrollPos = document.getElementById("contentArea").scrollTop;
+			for(let i = 0;i<data.length;i++){
+				if(scrollPos < (contentArea.scrollHeight/data.length)*(i+1)){
+						document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.color = "#ffffff";//set current icon to white
+						document.querySelector(".navBarItem:nth-of-type("+(1)+")").style.background = "none";
+						document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.color = "#ffffff";//set current icon to white
+						document.querySelector(".navBarItem:nth-of-type("+(2)+")").style.background = "none";
+						document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.color = "#ffffff";//set current icon to white
+						document.querySelector(".navBarItem:nth-of-type("+(3)+")").style.background = "none";
+						document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.color = "#ffffff";//set current icon to white
+						document.querySelector(".navBarItem:nth-of-type("+(4)+")").style.background = "none";
+						document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.color = "#ffffff";//set current icon to white
+						document.querySelector(".navBarItem:nth-of-type("+(5)+")").style.background = "none";
+						setCurrent(i); // update the new curent
+						document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.color = "#50b280";
+						document.querySelector(".navBarItem:nth-of-type("+(i+1)+")").style.background = "#ffffff";
+					break;
+				}
+			}
+		});
 	},[]);
 	return(
 		<div className={fullMenu? "navBar navBarActive": "navBar"}>
 			<IconContext.Provider value={{ style: {fontSize: '30px'}}}>
-				<Link className='menuBtn' onClick={()=>{toggleNavBar()}}>
+				<Link to="#" className='menuBtn' onClick={()=>{toggleNavBar()}}>
 					<div className='menuBtnContainer'>
 						{fullMenu ? <FaIcons.FaTimes/>:<FaIcons.FaBars/>}
 					</div>
@@ -50,7 +74,7 @@ export default function NavBar(){
 					<div className="navBarItemContainer">
 						{data.map((ele,idx)=>{
 							return(							
-								<Link className='navBarItem' key={idx} onClick={()=>{handleClickNavBarItem(idx)}}>
+								<Link to="#" className='navBarItem' key={idx} onClick={()=>{handleClickNavBarItem(idx)}}>
 									<div style={{marginLeft:'10px', display:'flex', flexDirection:'row', alignItems:'center'}}>
 										{ele.icon}
 										&nbsp;
